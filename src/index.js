@@ -1,4 +1,7 @@
+import { layer } from './Layer/layer';
 import './style.css';
+
+import { Layer } from './Layer/layer';
 
 console.log('funguju!');
 
@@ -16,10 +19,39 @@ allItems.forEach((item) => {
   });
 });
 
-const order = document.querySelector('.order-btn');
-const selectedOrder = document.querySelector('.drink__cup');
+const orderButton = document.querySelector('.order-btn');
+const drinkCup = document.querySelector('.drink__cup');
+let isOrdered = true;
 
-order.addEventListener('click', (e) => {
-  selectedOrder.classList.toggle('drink__cup--selected');
-  order.textContent = 'Zrušit';
+orderButton.addEventListener('click', () => {
+  if (isOrdered) {
+    orderButton.textContent = 'Zrušit';
+    drinkCup.classList.add('drink__cup--selected');
+    isOrdered = false;
+  } else {
+    orderButton.textContent = 'Objednat';
+    drinkCup.classList.remove('drink__cup--selected');
+    isOrdered = true;
+  }
 });
+
+const drinkInfoElement = document.querySelector('.drink__info');
+
+let layers = '';
+
+layers += layer({
+  color: '#feeca',
+  label: 'mléčná pěna',
+});
+
+layers += layer({
+  color: '#fed7b0',
+  label: 'teplé mléko',
+});
+
+layers += layer({
+  color: '#613916',
+  label: 'expresso',
+});
+
+drinkInfoElement.innerHTML += layers;
