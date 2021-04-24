@@ -242,6 +242,15 @@ nav a:hover {
   background-attachment: fixed;
 }
 
+.gallery p {
+  font-size: 20px;
+  background-color: rgb(218, 198, 165);
+  color: black;
+  max-width: 400px;
+  padding: 5px;
+  margin: 15px 0 0 30px;
+}
+
 .contacts {
   margin-bottom: 4rem;
 
